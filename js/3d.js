@@ -11,7 +11,7 @@ let stats;
 let camera, scene, renderer, effect, composer;
 
 const name = getUrlParams("name");
-const file = `https://github.ycl.cool/models/${name}/index.pmx`;
+const file = `https://sr.ycl.cool/models/${name}/index.pmx`;
 const gammaValue = 1.0;
 
 Ammo().then(function (AmmoLib) {
