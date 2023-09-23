@@ -226,22 +226,108 @@ if (typeof (other) == "undefined" || other == null) {
 
 // 跳转至3D模型
 function model(val) {
-    switch (val) {
-        case 1:
-            window.location.href = "3d.html?name=" + rolename;
+    switch (rolename) {
+        case '卡芙卡':
+            weapons = 4;
             break;
-        case 2:
-            window.location.href = "3d.html?name=男主";
+        case '刃':
+            weapons = 2;
             break;
-        case 3:
-            window.location.href = "3d.html?name=女主";
+        case '罗刹':
+            weapons = 3;
+            break;
+        case '银狼':
+            weapons = 1;
+            break;
+        case '景元':
+            weapons = 3;
+            break;
+        case '彦卿':
+            weapons = 1;
+            break;
+        case '姬子':
+            weapons = 5;
+            break;
+        case '杰帕德':
+            weapons = 1;
+            break;
+        case '瓦尔特':
+            weapons = 1;
+            break;
+        case '希儿':
+            weapons = 1;
+            break;
+        case '布洛妮娅':
+            weapons = 1;
+            break;
+        case '卢卡':
+            weapons = 1;
+            break;
+        case '驭空':
+            weapons = 1;
+            break;
+        case '停云':
+            weapons = 1;
+            break;
+        case '青雀':
+            weapons = 1;
+            break;
+        case '黑塔':
+            weapons = 1;
+            break;
+        case '阿兰':
+            weapons = 1;
+            break;
+        case '李素裳':
+            weapons = 4;
+            break;
+        case '娜塔莎':
+            weapons = 3;
+            break;
+        case '希露瓦':
+            weapons = 2;
+            break;
+        case '桑博':
+            weapons = 3;
+            break;
+        case '佩拉':
+            weapons = 2;
+            break;
+        case '虎克':
+            weapons = 2;
+            break;
+        case '三月七':
+            weapons = 2;
+            break;
+        case '艾丝妲':
+            weapons = 1;
+            break;
+        case '丹恒':
+            weapons = 1;
+            break;
+        case '符玄':
+            weapons = 1;
+            break;
+        case '玲可':
+            weapons = 7;
+            break;
+        case '饮月君':
+            weapons = 1;
             break;
         default:
-            alert('错误!无法获取角色名!');
+            weapons = 0;
             break;
     }
+    if (val == 1) {
+        window.location.href = "3d.html?name=" + rolename + "&weapons="+ weapons;
+    } else if (val == 2) {
+        window.location.href = "3d.html?name=男主&weapons=2";
+    } else if (val == 3) {
+        window.location.href = "3d.html?name=女主&weapons=2";
+    } else {
+        alert('错误!无法获取角色名!');
+    }
 }
-
 function download() {
     if (main) {
         var img1 = document.getElementById('img1').src;

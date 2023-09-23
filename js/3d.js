@@ -9,24 +9,24 @@ import { getUrlParams } from './function.module.js';
 
 let stats;
 let camera, scene, renderer, effect, composer;
-
+// 获取网页参数
 const name = getUrlParams("name");
-const file = `https://sr.ycl.cool/models/${name}/index.pmx`;
-const gammaValue = 1.0;
-
+const number = getUrlParams("weapons")
+const file = `./models/${name}/index.pmx`;
+// 主函数
 Ammo().then(function (AmmoLib) {
   Ammo = AmmoLib;
   init(file);
   animate();
 });
-
+// 场景配置
 function init(file) {
   const container = document.createElement('div');
   document.body.appendChild(container);
   // 相机
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-  camera.position.z = 30;
-  // 背景(颜色黑色)
+  camera.position.z = 40;
+  // 背景(黑色)
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x151515);
   // 光照
@@ -53,7 +53,7 @@ function init(file) {
   a.innerHTML = "模型加载器初始化成功.";
   htmlObj.appendChild(a);
   var a = document.createElement('h3');
-  // 模型加载
+  // 人物模型
   const loader = new MMDLoader();
   loader.load(file, function (mesh) {
     // 添加到屏幕( X:0 y:-10 Z:0)
@@ -66,18 +66,19 @@ function init(file) {
     setTimeout(function () {
       document.getElementById('progrsess').style.display = "none";
     }, 4000);
-    },
+  },
     function (xhr) {
       // 提示信息
       a.innerHTML = "加载模型主文件..." + (xhr.loaded / xhr.total * 100).toFixed(4) + "%";
       htmlObj.appendChild(a);
     }
   );
-
+  // 武器模型 
+  weapons(loader, number);
+  // 相机事件
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.minDistance = 10;
   controls.maxDistance = 100;
-  // 相机事件
   window.addEventListener('resize', onWindowResize);
 }
 // 相机事件
@@ -88,12 +89,66 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   composer.setSize(window.innerWidth, window.innerHeight);
 }
-
+// 渲染场景
 function animate() {
   requestAnimationFrame(animate);
   stats.begin();
   composer.render();
-  renderer.toneMappingExposure = Math.pow(gammaValue, 1);
+  renderer.toneMappingExposure = Math.pow(1.0, 1);
   renderer.render(scene, camera);
   stats.end();
+}
+// 加载武器模型
+function weapons(loader, number) {
+  if (number == 1) {
+    loader.load(`./models/${name}/1.pmx`, function (mesh) {
+      // 添加到屏幕( X:-10 y:-10 Z:0)
+      mesh.position.x = -10;
+      mesh.position.y = -10;
+      scene.add(mesh);
+    })
+  } else if (1 < number && number <= 4) {
+    let x = [0, -10, +10, +5, -5, -10];
+    let z = [0, 0, 0, -10, -10, 0];
+    for (let i = 1; i <= number; i++) {
+      loader.load(`./models/${name}/${i}.pmx`, function (mesh) {
+        // 添加到屏幕(X,Y,Z)
+        mesh.position.x = x[i];
+        mesh.position.y = -10;
+        mesh.position.z = z[i];
+        scene.add(mesh);
+      });
+    }
+  } else if (number = 4 && number != 7) { 
+    // 姬子
+    let x = [0, -20, +20, +10, -10, -20];
+    let z = [0, 0,   0,   -20, -20, -20];
+    for (let i = 1; i <= number; i++) {
+      loader.load(`./models/${name}/${i}.pmx`, function (mesh) {
+        // 添加到屏幕(X,Y,Z)
+        mesh.position.x = x[i];
+        mesh.position.y = -10;
+        mesh.position.z = z[i];
+        scene.add(mesh);
+      });
+    }
+  } else if (number = 7) {
+    // 玲可
+    let x = [0, -15, +20, +10, -10, -20, 0,   +20];
+    let z = [0, 0,   0,   -15, -15, -15, -15, -15];
+    for (let i = 1; i <= number; i++) {
+
+      console.log(i);
+      console.log(x[i]);
+      console.log(z[i]);
+
+      loader.load(`./models/${name}/${i}.pmx`, function (mesh) {
+        // 添加到屏幕(X,Y,Z)
+        mesh.position.x = x[i];
+        mesh.position.y = -10;
+        mesh.position.z = z[i];
+        scene.add(mesh);
+      });
+    }
+  }
 }
