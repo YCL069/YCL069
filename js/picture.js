@@ -7,123 +7,18 @@ if (typeof (rolename) == "undefined" || rolename == null) {
 }
 document.getElementById('name').innerText = rolename;
 // 立绘
-var picurl_root = "https://patchwiki.biligame.com/images/sr";
-switch (rolename) {
-    case '卡芙卡':
-        picurl = "/4/4d/nknfqbj6ig88564ivr3q079qh960c1b.png";
-        break;
-    case '刃':
-        picurl = "/3/36/10dqd1wzjx1xoppxz46ygeqmbxf6rpt.png";
-        break;
-    case '罗刹':
-        picurl = "/e/e4/snkt80kmu6qjcfbo4mchcdcolnerx0t.png";
-        break;
-    case '银狼':
-        picurl = "/e/ea/mavqad0rxp6zttalka56tspnd1t9qi8.png";
-        break;
-    case '景元':
-        picurl = "/2/21/7cdhu682y5kup1lcp06ve2cncp4kz2g.png";
-        break;
-    case '开拓者':
-        picurl = "/c/ca/4pvz8amab0bem4vazg00blxhr7xnaau.png";
-        break;
-    case '白露':
-        picurl = "/d/dc/20tvbl6dxcecm6rn2imnzlemhh3ffr0.png";
-        break;
-    case '彦卿':
-        picurl = "/5/50/feltlebdj6273djraeix51z9wrpxf2x.png";
-        break;
-    case '白露':
-        picurl = "/d/dc/20tvbl6dxcecm6rn2imnzlemhh3ffr0.png";
-        break;
-    case '姬子':
-        picurl = "/0/05/af9uyqk356aa8q4n27lw7wn12j1t7we.png";
-        break;
-    case '杰帕德':
-        picurl = "/b/b5/58je6egugnhlr7mwsjjkc3a58o08fgl.png";
-        break;
-    case '克拉拉':
-        picurl = "/9/9e/fb0howtu57fgb0ccm4qegqbtc4zvt6p.png";
-        break;
-    case '瓦尔特':
-        picurl = "/c/cf/pbqb1ox5vizg3klavrd41fdtawx2tk3.jpg";
-        break;
-    case '希儿':
-        picurl = "/9/92/jxsxrkyhkjyoyp39gvjw8b6i98u4gam.jpg";
-        break;
-    case '布洛妮娅':
-        picurl = "/f/f8/k08zmgcxrh26gso7z8w4afpcj8n3sov.png";
-        break;
-    case '卢卡':
-        picurl = "/f/fc/b7aquclnjlgarcnjzu0pbiegxoplirv.png";
-        break;
-    case '驭空':
-        picurl = "/7/72/k3jp2bsclezw6h7gqq61uw6qvsecjox.png";
-        break;
-    case '停云':
-        picurl = "/9/92/5em7gpwscup6ag18wf46qduk5uilv5t.png";
-        break;
-    case '青雀':
-        picurl = "/9/9d/f1l3bb3agxofvt78pagrikgyiitcq7a.png";
-        break;
-    case '黑塔':
-        picurl = "/f/f7/7prg1ft3buafziroyspnnutke4yvotw.png";
-        break;
-    case '阿兰':
-        picurl = "/3/34/0jz91oea8wwcx537p4cyy5c73nu0cj0.png";
-        break;
-    case '李素裳':
-        picurl = "/6/62/03l6560bveh17pigs9jxsrg9jjk1qlk.png";
-        break;
-    case '娜塔莎':
-        picurl = "/c/c7/ou11kkss3vmr44v7iosik4uyrrof3vr.png";
-        break;
-    case '希露瓦':
-        picurl = "/c/cf/l5kq8zxopx7wfs9jjjm0zm2bvnufju6.png";
-        break;
-    case '桑博':
-        picurl = "/e/e8/23cwpt0m7yk0tkxh8h59mwipcwq1grk.png";
-        break;
-    case '佩拉':
-        picurl = "/e/ec/s2ttvcyq91wjmherjpwisxl3gutkqat.png";
-        break;
-    case '虎克':
-        picurl = "/7/78/4c8wt8eejiudj1s5a97kih5epfrj8pc.png";
-        break;
-    case '三月七':
-        picurl = "/e/e8/1q46duvfdnp2bpd67qfaa1dsbycrijj.png";
-        break;
-    case '艾丝妲':
-        picurl = "/f/fb/t3l8ksl1j60xbi9zpfdhj8w2wb5hibh.png";
-        break;
-    case '丹恒':
-        picurl = "/3/34/hf2o5suregc5fswecw8o5x7oki5229a.png";
-        break;
-    case '符玄':
-        picurl = "/2/2e/4xjrcxr90bt7o2u2964twkd4vli0q4m.png";
-        break;
-    case '玲可':
-        picurl = "/1/10/1h9lkavk03ztppspdyhjkltrs2py6a2.png";
-        break;
-    case '饮月君':
-        picurl = "/0/04/43nk7fcvbcmeflbxziccsra8havwu5u.png";
-        break;
-    case '镜流':
-        picurl = "/b/b9/b1v5kx6pyxkq288telfdwdik5qiyw64.png";
-        break;
-    case '托帕':
-        picurl_root = "https://upload-bbs.miyoushe.com/upload";
-        picurl = "/2023/08/15/288909600/fdadb4375abf4389ba0ca178ba7a38f9_8360062052700257391.jpg";
-        break;
-    case '桂乃芬':
-        picurl_root = "https://upload-bbs.miyoushe.com/upload";
-        picurl = "/2023/08/16/288909600/4c0a5c928a01e66ae75c2636d361e660_7040364540509287311.jpg";
-        break;
-    default:
-        picurl = "/f/f1/7291wtkufijrg6yw4wte3nnlbxhax34.png";
-        break;
-}
-document.getElementById('img1').src = picurl_root + picurl;
+json(rolename, "urlroot", function (result) {
+    // 判断立绘图片的所属域名前缀
+    if (result) {
+        var picurl_root = "https://patchwiki.biligame.com/images/sr";
+    } else {
+        var picurl_root = "https://upload-bbs.miyoushe.com/upload";
+    }
+    // 立绘图片地址
+    json(rolename, "picurl", function (result) {
+        document.getElementById('img1').src = picurl_root + result;
+    });
+});
 // 属性
 var list = getUrlParams('list');
 switch (list) {
@@ -226,108 +121,19 @@ if (typeof (other) == "undefined" || other == null) {
 
 // 跳转至3D模型
 function model(val) {
-    switch (rolename) {
-        case '卡芙卡':
-            weapons = 4;
-            break;
-        case '刃':
-            weapons = 2;
-            break;
-        case '罗刹':
-            weapons = 3;
-            break;
-        case '银狼':
-            weapons = 1;
-            break;
-        case '景元':
-            weapons = 3;
-            break;
-        case '彦卿':
-            weapons = 1;
-            break;
-        case '姬子':
-            weapons = 5;
-            break;
-        case '杰帕德':
-            weapons = 1;
-            break;
-        case '瓦尔特':
-            weapons = 1;
-            break;
-        case '希儿':
-            weapons = 1;
-            break;
-        case '布洛妮娅':
-            weapons = 1;
-            break;
-        case '卢卡':
-            weapons = 1;
-            break;
-        case '驭空':
-            weapons = 1;
-            break;
-        case '停云':
-            weapons = 1;
-            break;
-        case '青雀':
-            weapons = 1;
-            break;
-        case '黑塔':
-            weapons = 1;
-            break;
-        case '阿兰':
-            weapons = 1;
-            break;
-        case '李素裳':
-            weapons = 4;
-            break;
-        case '娜塔莎':
-            weapons = 3;
-            break;
-        case '希露瓦':
-            weapons = 2;
-            break;
-        case '桑博':
-            weapons = 3;
-            break;
-        case '佩拉':
-            weapons = 2;
-            break;
-        case '虎克':
-            weapons = 2;
-            break;
-        case '三月七':
-            weapons = 2;
-            break;
-        case '艾丝妲':
-            weapons = 1;
-            break;
-        case '丹恒':
-            weapons = 1;
-            break;
-        case '符玄':
-            weapons = 1;
-            break;
-        case '玲可':
-            weapons = 7;
-            break;
-        case '饮月君':
-            weapons = 1;
-            break;
-        default:
-            weapons = 0;
-            break;
-    }
-    if (val == 1) {
-        window.location.href = "3d.html?name=" + rolename + "&weapons="+ weapons;
-    } else if (val == 2) {
-        window.location.href = "3d.html?name=男主&weapons=2";
-    } else if (val == 3) {
-        window.location.href = "3d.html?name=女主&weapons=2";
-    } else {
-        alert('错误!无法获取角色名!');
-    }
+    json(rolename, "weapons", function (result) {
+        if (val == 1) {
+            window.location.href = "3d.html?name=" + rolename + "&weapons=" + result;
+        } else if (val == 2) {
+            window.location.href = "3d.html?name=男主&weapons=2";
+        } else if (val == 3) {
+            window.location.href = "3d.html?name=女主&weapons=2";
+        } else {
+            console.error('错误!无法获取角色名!');
+        }
+    })
 }
+// 立绘下载
 function download() {
     if (main) {
         var img1 = document.getElementById('img1').src;
@@ -339,3 +145,20 @@ function download() {
         window.open(img, "_blank");
     }
 }
+// json处理
+function json(val1, val2, callback) {
+    var url = './data.json';
+    // 发起GET请求获取JSON数据
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var jsonStr = xhr.responseText;
+            var jsonObj = JSON.parse(jsonStr);
+            var result = jsonObj[val1][val2];
+            callback(result); // 调用回调函数，并传递结果
+        }
+    };
+    xhr.open('GET', url, true);
+    xhr.send();
+}
+
