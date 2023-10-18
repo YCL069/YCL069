@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import Stats from 'three/addons/libs/stats.module.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
-import { MMDLoader } from 'three/addons/loaders/MMDLoader.js';
+import { EffectComposer } from 'three/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/postprocessing/RenderPass.js';
+import Stats from 'three/libs/stats.module.js';
+import { OrbitControls } from 'three/controls/OrbitControls.js';
+import { OutlineEffect } from 'three/effects/OutlineEffect.js';
+import { MMDLoader } from 'three/loaders/MMDLoader.js';
 
 let stats;
 let camera, scene, renderer, effect, composer;
@@ -12,7 +12,7 @@ let info = document.getElementById('info');
 // 获取网页URL参数
 const name = getUrlParams("name");
 const number = getUrlParams("weapons");
-const file = `./models/${name}/index.pmx`;
+const file = `https://ycl069.github.io/models/${name}/index.pmx`;
 // 主函数
 try {
   Ammo().then(function (AmmoLib) {
@@ -119,7 +119,7 @@ function animate() {
 // 加载武器模型
 function weapons(loader, number) {
   if (number == 1) {
-    loader.load(`./models/${name}/1.pmx`, function (mesh) {
+    loader.load(`https://ycl069.github.io/models/${name}/1.pmx`, function (mesh) {
       // 添加到屏幕( X:-10 y:-10 Z:0)
       mesh.position.x = -10;
       mesh.position.y = -10;
@@ -142,7 +142,7 @@ function weapons(loader, number) {
     let x = [0, -20, +20, +10, -10, -20];
     let z = [0, 0, 0, -20, -20, -20];
     for (let i = 1; i <= number; i++) {
-      loader.load(`./models/${name}/${i}.pmx`, function (mesh) {
+      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, function (mesh) {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
@@ -155,7 +155,7 @@ function weapons(loader, number) {
     let x = [0, -15, +20, +10, -10, -20, 0, +20];
     let z = [0, 0, 0, -15, -15, -15, -15, -15];
     for (let i = 1; i <= number; i++) {
-      loader.load(`./models/${name}/${i}.pmx`, function (mesh) {
+      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, function (mesh) {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
