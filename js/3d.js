@@ -69,15 +69,17 @@ function init(file) {
         info.style.backgroundColor = "goldenrod";
         info.innerHTML = "模型加载器出现非致命性错误, 若无法正常渲染请刷新页面!<br>如多次出现渲染错误,请<a href='https://ycl.cool/blog/index.php/archives/17/'>点此反馈.</a>"
         setTimeout(() => {
+          info.innerHTML = "";
           document.getElementById('progrsess').style.transition = "3s"
           document.getElementById('progrsess').style.top = "-200px";
-        }, 1000);
+        }, 2000);
       } else {
         info.innerHTML = "预处理模型材质..."
         onAfterRender(mesh, 0, 0, () => {
           info.style.backgroundColor = "green";
           info.innerHTML = "模型材质预处理成功,等待GPU渲染.";
           setTimeout(() => {
+            info.innerHTML = "";
             document.getElementById('progrsess').style.top = "-35px";
           }, 1000);
         });
