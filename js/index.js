@@ -1,5 +1,5 @@
 // 处理主表格
-fetch('https://ycl.cool/tool/sr/pc.table')
+fetch('pc.table')
     .then(response => response.text())
     .then(text => {
         // 将数据填入表格
@@ -14,7 +14,7 @@ if (isMobile()) {
     var url = "url('https://upload-bbs.miyoushe.com/upload/2023/05/08/160629650/a76cc3fdfca9be96d2f716a57852dcdd_5751512773958571924.jpg')";
     document.body.style.background = url;
     // 处理主表续表
-    fetch('https://ycl.cool/tool/sr/mobile.table')
+    fetch('mobile.table')
         .then(response => response.text())
         .then(text => {
             // 将数据填入表格
@@ -34,7 +34,7 @@ if (isMobile()) {
 }
 
 // 未分类模型表格
-fetch('https://ycl.cool/tool/sr/unknow.table')
+fetch('unknow.table')
     .then(response => response.text())
     .then(text => {
         // 将数据填入表格
