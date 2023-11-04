@@ -147,7 +147,7 @@ function download() {
 }
 // json处理
 function json(val1, val2, callback) {
-    var url = './data.json';
+    var url = 'https://ycl.cool/tool/sr/data.json';
     // 发起GET请求获取JSON数据
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
