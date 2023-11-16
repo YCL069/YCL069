@@ -70,10 +70,7 @@
         <img
             src="https://patchwiki.biligame.com/images/sr/thumb/d/d7/ha9pgzf4yzeqccoah30ig1ayr5oedgo.png/20px-%E4%B8%B0%E9%A5%B6-%E7%99%BD.png">
     </td>
-    <td>
-        <a onclick="jump(7,5,'藿藿',1)" style="color:  aqua;">藿藿</a>
-        <a class="note" href="#note3">(3)</a>
-    </td>
+    <td><a onclick="jump(7,5,'藿藿')">藿藿</a></td>
     <td><a onclick="jump(7,6,'玲可')">玲可</td>
     <td><a onclick="jump(7,7,'罗刹')">罗刹</td>
 </tr>
