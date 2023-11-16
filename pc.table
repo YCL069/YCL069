@@ -43,10 +43,7 @@
     <img
       src="https://patchwiki.biligame.com/images/sr/thumb/4/45/0afzd3seodfwyuj2uo4riz7kblernsh.png/20px-%E6%99%BA%E8%AF%86-%E7%99%BD.png">
   </td>
-  <td>
-    <a onclick="jump(3,1,'银枝',1)" style="color: aqua;">银枝</a>
-    <a class="note" href="#note3">(3)</a>
-  </td>
+  <td><a onclick="jump(3,1,'银枝')">银枝</a></td>
   <td><a onclick="jump(3,2,'姬子')">姬子</a></td>
   <td><a onclick="jump(3,3,'黑塔')">黑塔</a></td>
   <td>
@@ -65,10 +62,7 @@
     <img
       src="https://patchwiki.biligame.com/images/sr/thumb/4/44/hdfq7d3wf9spz0pjcu7xskvfa31so5z.png/20px-%E5%90%8C%E8%B0%90-%E7%99%BD.png">
   </td>
-  <td>
-    <a onclick="jump(4,2,'寒鸦',1)" style="color: aqua;">寒鸦</a>
-    <a class="note" href="#note3">(3)</a>
-  </td>
+  <td><a onclick="jump(4,2,'寒鸦')">寒鸦</a></td>
   <td><a onclick="jump(4,2,'艾丝妲')">艾丝妲</a></td>
   <td>
     <a onclick="jump(4,3,'阮•梅',1)" style="color: aqua;">阮•梅</a>
@@ -123,10 +117,7 @@
   <td></td>
   <td></td>
   <td><a onclick="jump(7,4,'白露')">白露</td>
-  <td data-device="mobile">
-    <a onclick="jump(7,5,'藿藿',1)" style="color:  aqua;">藿藿</a>
-    <a class="note" href="#note3">(3)</a>
-  </td>
-  <td data-device="mobile"><a onclick="jump(7,6,'玲可')">玲可</td>
-  <td data-device="mobile"><a onclick="jump(7,7,'罗刹')">罗刹</td>
+  <td data-device="mobile"><a onclick="jump(7,5,'藿藿')">藿藿</a></td>
+  <td data-device="mobile"><a onclick="jump(7,6,'玲可')">玲可</a></td>
+  <td data-device="mobile"><a onclick="jump(7,7,'罗刹')">罗刹</a></td>
 </tr>
