@@ -131,7 +131,7 @@ function weapons(loader, number) {
     let x = [0, -10, +10, +5, -5, -10];
     let z = [0, 0, 0, -10, -10, 0];
     for (let i = 1; i <= number; i++) {
-      loader.load(`./models/${name}/${i}.pmx`, function (mesh) {
+      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, function (mesh) {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
