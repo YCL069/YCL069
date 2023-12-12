@@ -78,7 +78,7 @@
     <td data-device="mobile">
         <a onclick="jump(5,5,'桑博')">桑博</a>
         <br>
-        <a onclick="jump(5,5,'黑天鹅')">黑天鹅</a>
+        <a onclick="jump(5,5,'黑天鹅')" style="color: aqua;">黑天鹅</a>
         <a class="note" href="#note3">(3)</a>
     </td>
     <td><a onclick="jump(5,6,'银狼')">银狼</a></td>
