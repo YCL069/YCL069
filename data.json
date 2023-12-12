@@ -180,14 +180,14 @@
         "urlroot": true
     },
     "银枝": {
-        "picurl": "/2023/09/26/288909600/e609b64f30c58565583553db232ef478_1670786158638059102.jpg",
+        "picurl": "/5/57/6s7lzrxg0wwzyueoehyakj4y20vql12.png",
         "weapons": 2,
-        "urlroot": false
+        "urlroot": true
     },
     "寒鸦": {
-        "picurl": "/2023/09/27/288909600/76d56e134b6fdf0cd1941abed098c941_4841736115706802880.jpg",
+        "picurl": "/d/df/bla69hsv1inbrflt70o1s9t5xby1res.png",
         "weapons": 1,
-        "urlroot": false
+        "urlroot": true
     },
     "阮•梅": {
         "picurl": "/2023/10/30/288909600/d8c5a0e11a1b39fa3f7ea0407ec107c2_4425104389947043782.jpg",
@@ -200,7 +200,12 @@
         "urlroot": false
     },
     "雪衣": {
-        "picurl": "/2023/10/30/288909600/62d839bf380dd458146d3ba1e6c0a6a0_4534958131188546646.jpg",
+        "picurl": "/a/ab/0oy5nb9sqvjyff89j1jsq6vkran5a82.png",
+        "weapons": 0,
+        "urlroot": true
+    },
+    "黑天鹅": {
+        "picurl": "/2023/12/11/288909600/93037970d139c94f2d6d94f91a42bbbb_8167602946884692557.jpeg",
         "weapons": 0,
         "urlroot": false
     }
