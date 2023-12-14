@@ -20,7 +20,12 @@
     <a onclick="jump(1,1,'克拉拉')">克拉拉</a>
   </td>
   <td><a onclick="jump(1,2,'虎克')">虎克</a></td>
-  <td><a onclick="jump(1,3,'镜流')">镜流</a></td>
+  <td>
+    <a onclick="jump(1,3,'镜流')">镜流</a>
+    <br>
+    <a onclick="jump(1,3,'米沙'，1)"  style="color: aqua;">米沙</a>
+    <a class="note" href="#note3">(3)</a>
+  </td>
   <td><a onclick="jump(1,4,'阿兰')">阿兰</a></td>
   <td data-device="mobile"><a onclick="jump(1,5,'刃')">刃</a></td>
   <td data-device="mobile">
@@ -106,7 +111,10 @@
   </td>
   <td><a onclick="jump(4,4,'停云')">停云</a></td>
   <td data-device="mobile"><a onclick="jump(4,5,'布洛妮娅')">布洛妮娅</a></td>
-  <td data-device="mobile"></td>
+  <td data-device="mobile">
+    <a onclick="jump(4,3,'花火',1)" style="color: aqua;">花火</a>
+    <a class="note" href="#note3">(3)</a>
+  </td>
   <td data-device="mobile"><a onclick="jump(4,7,'驭空')">驭空</a></td>
 </tr>
 <!-- 虚无  -->
