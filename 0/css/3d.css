@@ -12,7 +12,7 @@ body {
 
 #info {
 	padding: 5px ;
-	width: 250px;
+	width: 300px;
 	margin: 0 auto;
 	background-color: darkgray;
 	-webkit-transition: 0.6s;
@@ -23,22 +23,33 @@ body {
 }
 
 #progrsess {
-	top: 25px;
+	top: 50px;
 	position: absolute;
 	width: 100%;
 	box-sizing: border-box;
 	text-align: center;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	pointer-events: none;
 	z-index: 0;
 	-webkit-transition: 1s;
 	-moz-transition: 1s;
 	-ms-transition: 1s;
 	-o-transition: 1s;
 	transition: 1s;
+}
+
+#vmdinfo {
+	position: absolute;
+	text-align: center;
+	z-index: 0;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+	margin-top: 50px;
+	width: 90px;
+	height: 100px;
+	z-index: 0;
+	/* background-color: red; */
 }
 
 @keyframes slide-out-top {

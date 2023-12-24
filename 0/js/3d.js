@@ -11,20 +11,22 @@ let stats;
 let helper, mesh;
 let camera, scene, renderer, effect, composer;
 let info = document.getElementById('info');
-// 获取网页URL参数
-// const name = getUrlParams("name");
-// const number = getUrlParams("weapons");
-// const pmxfile = `https://ycl069.github.io/models/${name}/index.pmx`;
-const pmxfile = `models/index.pmx`;
-const vmdfile = `0.vmd`;
-const number = 0
-
 const clock = new THREE.Clock();
+var id = getUrlParams('id');
+var vmd = getUrlParams('vmd');
+if (typeof vmd === 'undefined') {
+  vmd = 0
+}
+if (typeof id === 'undefined') {
+  id = 1
+}
+const vmdfile = `0.vmd`;
+
 // 主函数
 try {
   Ammo().then(function (AmmoLib) {
     Ammo = AmmoLib;
-    init(pmxfile, vmdfile);
+    init();
     animate();
   });
 } catch (err) {
@@ -32,8 +34,9 @@ try {
   info.style.backgroundColor = "red";
   info.innerHTML = "模型加载器初始化出错, 请刷新页面以重新加载!<br>如多次出现初始化错误,请将下面的详细内容复制并<a href='https://ycl.cool/blog/index.php/archives/17/'>点此反馈.</a><br><hr>" + err;
 }
+
 // 场景配置
-function init(pmxfile, vmdfile) {
+function init() {
   const container = document.createElement('div');
   document.body.appendChild(container);
   // 相机
@@ -52,6 +55,7 @@ function init(pmxfile, vmdfile) {
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
   // 渲染器
   composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
@@ -61,92 +65,100 @@ function init(pmxfile, vmdfile) {
   container.appendChild(renderer.domElement);
   container.appendChild(stats.dom);
   // 提示信息
-  info.innerHTML = "模型加载器初始化成功.<hr>若页面长时间未响应请刷新页面!<br>如多次出现,请<a href='https://ycl.cool/blog/index.php/archives/17/'>点此反馈.</a>";
+  info.innerHTML = "模型加载器初始化成功. <hr>若页面长时间未响应请刷新页面!<br>如多次出现,请<a href='https://ycl.cool/blog/index.php/archives/17/'>点此反馈.</a>";
   // 人物模型
   const loader = new MMDLoader();
-  // loader.load(
-  //   pmxfile,
-  //   (mesh) => {
-  //     // 添加到屏幕( X:0 y:-10 Z:0)
-  //     mesh.position.y = -10;
-  //     scene.add(mesh);
-  //     Finish();
-  //   },
-  //   (xhr) => {
-  //     info.innerHTML = "加载模型主文件..." + (xhr.loaded / xhr.total * 100).toFixed(2) + "%<br>" + (xhr.loaded / 1024).toFixed(0) + " KB / " + (xhr.total / 1024).toFixed(0) + " KB";
-  //   },
-  //   (err) => {
-  //     document.getElementById('error').innerHTML = "1";
-  //     console.error(err);
-  //   }
-  // );
-  // ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-  // if ( 1 = 2 ) {
   helper = new MMDAnimationHelper();
-  loader.loadWithAnimation(
-    pmxfile,
-    vmdfile,
-    (mmd) => {
-      // 添加到屏幕( X:0 y:-10 Z:0)
-      mesh = mmd.mesh;
-      mesh.position.y = -10;
-      scene.add(mesh);
-      // 提示信息
-      Finish(false);
-      // 监听
-      const audioListener = new THREE.AudioListener();
-      camera.add(audioListener);
-      // 音频对象
-      const oceanAmbientSound = new THREE.Audio(audioListener);
-      scene.add(oceanAmbientSound);
-      // 加载音频资源
-      const loader = new THREE.AudioLoader();
+  json(id, "name", (name) => {
+    const pmxfile = `https://ycl069.github.io/models/${name}/index.pmx`;
+    // const pmxfile = `./models/index.pmx`;
+    if (!vmd) {
       loader.load(
-        '0.mp3',
-        (audioBuffer) => {
-          // 处理音频
-          oceanAmbientSound.setBuffer(audioBuffer);
-          helper.add(mesh, {
-            animation: mmd.animation,
-            physics: true
-          });
-          // 播放音频
-          oceanAmbientSound.play();
-          // 提示信息
-          info.style.backgroundColor = "green";
-          info.innerHTML = "加载完成.";
-          setTimeout(() => {
-            document.getElementById('progrsess').style.transition = "3s"
-            document.getElementById('progrsess').style.top = "-200px";
-          }, 2000);
+        pmxfile,
+        (mesh) => {
+          // 添加到屏幕( X:0 y:-10 Z:0)
+          mesh.position.y = -10;
+          scene.add(mesh);
+          Finish();
         },
-        // 声音的回调函数
         (xhr) => {
-          info.innerHTML = "加载音频文件..." + (xhr.loaded / xhr.total * 100).toFixed(2) + "%<br>" + (xhr.loaded / 1024).toFixed(0) + " KB / " + (xhr.total / 1024).toFixed(0) + " KB";
+          info.innerHTML = "加载模型主文件..." + (xhr.loaded / xhr.total * 100).toFixed(2) + "%<br>" + (xhr.loaded / 1024).toFixed(0) + " KB / " + (xhr.total / 1024).toFixed(0) + " KB";
         },
         (err) => {
           document.getElementById('error').innerHTML = "1";
           console.error(err);
         }
       );
-    },
-    // 模型和动作的回调函数
-    (xhr) => {
-      info.innerHTML = "加载模型主文件..." + (xhr.loaded / xhr.total * 100).toFixed(2) + "%<br>" + (xhr.loaded / 1024).toFixed(0) + " KB / " + (xhr.total / 1024).toFixed(0) + " KB";
-    },
-    (err) => {
-      document.getElementById('error').innerHTML = "1";
-      console.error(err);
+      // 武器模型
+      json(id, "weapons", (number) => {
+        weapons(loader, number);
+      })
+    } else {
+      loader.loadWithAnimation(
+        pmxfile,
+        "https://ycl.cool/tool/sr/1/index.vmd",
+        (mmd) => {
+          // 添加到屏幕( X:0 y:-10 Z:0)
+          mesh = mmd.mesh;
+          mesh.position.y = -10;
+          scene.add(mesh);
+          // 监听
+          const audioListener = new THREE.AudioListener();
+          camera.add(audioListener);
+          // 音频对象
+          const oceanAmbientSound = new THREE.Audio(audioListener);
+          scene.add(oceanAmbientSound);
+          // 加载音频资源
+          const loader2 = new THREE.AudioLoader();
+          info.style.width = "250px";
+          loader2.load(
+            'https://ycl.cool/tool/sr/1/index.mp3',
+            // musicfile,
+            (audioBuffer) => {
+              // 提示信息
+              info.style.backgroundColor = "green";
+              info.innerHTML = "加载完成!<br>请等待人物模型材质读取完成后点击按钮.";
+              // 按钮触发
+              var Btn = document.createElement('button');
+              Btn.innerText = "开始";
+              Btn.onclick = () => {
+                oceanAmbientSound.setBuffer(audioBuffer);
+                helper.add(mesh, {
+                  animation: mmd.animation,
+                  physics: true
+                });
+                // 播放音频
+                oceanAmbientSound.play();
+              }
+              info.appendChild(Btn);
+            },
+            // 声音回调函数
+            (xhr) => {
+              info.innerHTML = "加载音频文件..." + (xhr.loaded / xhr.total * 100).toFixed(2) + "%<br>" + (xhr.loaded / 1024).toFixed(0) + " KB / " + (xhr.total / 1024).toFixed(0) + " KB";
+            },
+            (err) => {
+              console.error(err);
+            }
+          )
+        },
+        // 模型和动作回调函数
+        (xhr) => {
+          info.innerHTML = "加载模型文件和动作文件..." + (xhr.loaded / xhr.total * 100).toFixed(2) + "%<br>" + (xhr.loaded / 1024).toFixed(0) + " KB / " + (xhr.total / 1024).toFixed(0) + " KB";
+        },
+        (err) => {
+          console.error(err);
+        }
+      )
     }
-  );
-  // 武器模型 
-  // weapons(loader, number);
+  })
+
   // 相机
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.minDistance = 10;
   controls.maxDistance = 100;
   window.addEventListener('resize', onWindowResize);
 }
+
 // 相机事件
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -155,6 +167,7 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   composer.setSize(window.innerWidth, window.innerHeight);
 }
+
 // 渲染场景
 function animate() {
   requestAnimationFrame(animate);
@@ -165,6 +178,13 @@ function animate() {
   stats.end();
   render();
 }
+
+// 动画
+function render() {
+  helper.update(clock.getDelta());
+  renderer.render(scene, camera);
+}
+
 // 加载武器模型
 function weapons(loader, number) {
   if (number == 1) {
@@ -214,87 +234,21 @@ function weapons(loader, number) {
     }
   }
 }
+
 // 加载完成提示信息
-function Finish(isclose, text1, text2) {
-  if (document.getElementById('error').innerHTML == 1) {
-    info.style.width = "50%";
-    info.style.backgroundColor = "goldenrod";
-    info.innerHTML = "加载出现非致命性错误, 若无法正常渲染请刷新页面!<br>如多次出现,请<a href='https://ycl.cool/blog/index.php/archives/17/'>点此反馈.</a>"
-  } else {
-      info.innerHTML = "预加载模型材质..."
-      onAfterRender(mesh, 0, 0, () => {
-        info.style.backgroundColor = "green";
-        info.innerHTML = "等待网络响应...";
-      })
-  }
-
-  if (isclose) {
+function Finish() {
+  info.style.backgroundColor = "green";
+  info.style.width = "250px";
+  info.innerHTML = "加载完成! 请等待模型贴图下载.<br>";
+  var ok = document.createElement('button');
+  ok.innerText = "关闭";
+  ok.onclick = () => {
+    document.getElementById('progrsess').style.transition = "3s"
+    document.getElementById('progrsess').style.top = "-200px";
+    // 防止屏幕上方出现一条黑边
     setTimeout(() => {
-      document.getElementById('progrsess').style.transition = "3s"
-      document.getElementById('progrsess').style.top = "-200px";
-    }, 2000);
+      document.getElementById('progrsess').style.display = "none";
+    }, 3000)
   }
-}
-/**
- * 获取模型当前已渲染的贴图数
- * @param model       模型对象
- * @returns {number}  贴图数
- */
-function getImageCount(model) {
-  let iCount = 0
-
-  model.traverse(item => {
-    if (item instanceof THREE.Mesh) {
-      if (Array.isArray(item.material)) {
-        item.material.forEach(m => {
-          if (m.map && m.map.image) {
-            iCount++
-          }
-        })
-      } else {
-        if (item.material.map && item.material.map.image) {
-          iCount++
-        }
-      }
-    }
-  })
-
-  return iCount
-}
-/**
- *
- * @param model     模型对象
- * @param ic        贴图计数器
- * @param ec        重复次数
- * @param callback  回调函数
- */
-function onAfterRender(model, ic, ec, callback) {
-  const wait = 3
-
-  let iCount = ic
-
-  let equalCount = ec
-
-  setTimeout(() => {
-    const res = getImageCount(model)
-
-    if (iCount === res) {
-      if (equalCount === wait) {
-        callback()
-      } else {
-        equalCount++
-        onAfterRender(model, iCount, equalCount, callback)
-      }
-    } else {
-      iCount = res
-      equalCount = 0
-      onAfterRender(model, iCount, equalCount, callback)
-    }
-  }, 100)
-}
-function render() {
-
-  helper.update(clock.getDelta());
-  renderer.render(scene, camera);
-
+  info.appendChild(ok);
 }

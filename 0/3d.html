@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 	<title>3D模型查看</title>
@@ -7,16 +7,12 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link type="text/css" rel="stylesheet" href="css/3d.css">
 	<script async src="js/es-module-shims.js" async></script>
-	<script src="js/libs/ammo.wasm.js" async></script>
+	<script src="./js/libs/ammo.wasm.js" async></script>
 	<script src="https://ycl.cool/js/function.js"></script>
 	<link href="https://ycl.cool/media/icon.ico" rel="shortcut icon">
 </head>
 
 <body>
-	<div id="progrsess">
-		<h3 id="info">初始化模型加载器.</h3>
-		<h3 id="error" style="display: none;">0</h3>		
-	</div>
 	<script type="importmap">{
 		"imports": {
 			"three": "./js/three.module.min.js",
@@ -25,7 +21,22 @@
 		}
 	}</script>
 	<script type="module" src="js/3d.js" defer></script>
-	<button type="button" onclick="a"></button>
+	<div id="progrsess">
+		<h3 id="info">初始化模型加载器.</h3>
+	</div>
+	<div id="vmdinfo">
+		<a>可用动作列表:</a>
+		<button onclick="jump(1)">极乐净土</button>
+		<script>
+			function jump(id) {
+				var module = getUrlParams('id');
+				if (typeof id === 'undefined') {
+					id = 1
+				}
+				window.location.href = "3d.html?id=" + module + "&vmd=" + id;
+			}
+		</script>
+	</div>
 </body>
 
 </html>
