@@ -94,9 +94,10 @@ function init() {
         weapons(loader, number);
       })
     } else {
+      var vmdid = getUrlParams('vmd')
       loader.loadWithAnimation(
         pmxfile,
-        "https://ycl.cool/tool/sr/1/index.vmd",
+        `https://sr.ycl.cool/vmd/${vmdid}/index.vmd`,
         (mmd) => {
           // 添加到屏幕( X:0 y:-10 Z:0)
           mesh = mmd.mesh;
@@ -112,7 +113,7 @@ function init() {
           const loader2 = new THREE.AudioLoader();
           info.style.width = "250px";
           loader2.load(
-            'https://ycl.cool/tool/sr/1/index.mp3',
+            `https://sr.ycl.cool/vmd/${vmdid}/index.vmd`,
             // musicfile,
             (audioBuffer) => {
               // 提示信息
