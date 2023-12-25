@@ -80,8 +80,8 @@ function init() {
   const loader = new MMDLoader();
   helper = new MMDAnimationHelper();
   json(dataurl, id, "name", (name) => {
-    const pmxfile = `./models/${name}/index.pmx`;
-    // const pmxfile = `https://ycl069.github.io/models/${name}/index.pmx`;
+    // const pmxfile = `./models/${name}/index.pmx`;
+    const pmxfile = `https://ycl069.github.io/models/${name}/index.pmx`;
     if (!vmd) {
       loader.load(
         pmxfile,
@@ -226,7 +226,7 @@ function render() {
 function weapons(loader, name, number) {
   console.log(number)
   if (number == 1) {
-    loader.load(`./models/${name}/1.pmx`, function (mesh) {
+    loader.load(`https://ycl069.github.io/models/${name}/1.pmx`, function (mesh) {
       // 添加到屏幕( X:-10 y:-10 Z:0)
       mesh.position.x = -10;
       mesh.position.y = -10;
@@ -237,7 +237,7 @@ function weapons(loader, name, number) {
     let z = [0, 0, 0, -10, -10, 0];
     for (let i = 1; i <= number; i++) {
       console.log("sd" + i)
-      loader.load(`./models/${name}/${i}.pmx`, (mesh) => {
+      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, (mesh) => {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
@@ -251,7 +251,7 @@ function weapons(loader, name, number) {
     let z = [0, 0, 0, -15, -15, -15, -15, -15];
     for (let i = 1; i <= number; i++) {
       console.log("sd" + i)
-      loader.load(`./models/${name}/${i}.pmx`, (mesh) => {
+      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, (mesh) => {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
