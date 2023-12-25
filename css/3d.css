@@ -1,3 +1,15 @@
+* {
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+}
+
+a{
+	color: aqua;
+}
+
 body {
 	margin: 0;
 	background-color: #000;
@@ -11,42 +23,35 @@ body {
 }
 
 #info {
-	padding: 5px ;
-	width: 250px;
+	padding: 5px;
+	width: 300px;
 	margin: 0 auto;
 	background-color: darkgray;
-	-webkit-transition: 0.6s;
-	-moz-transition: 0.6s;
-	-ms-transition: 0.6s;
-	-o-transition: 0.6s;
-	transition: 0.6s;
 }
 
 #progrsess {
-	top: 25px;
+	top: 50px;
 	position: absolute;
 	width: 100%;
 	box-sizing: border-box;
 	text-align: center;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	pointer-events: none;
 	z-index: 0;
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	-ms-transition: 1s;
-	-o-transition: 1s;
-	transition: 1s;
 }
 
-@keyframes slide-out-top {
-	0% {
-		 transform: translateY(0);
-  
-	}
-	100% {
-		 transform: translateY(-1000px);
-	}
-  }
+#three {
+	top: 10px;
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	z-index: 0;
+}
+
+#VMDList {
+	position: absolute;
+	text-align: center;
+	margin-top: 50px;
+	left: -100px;
+	width: 90px;
+	z-index: 1;
+}

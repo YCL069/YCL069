@@ -9,12 +9,12 @@
     6. 量子
     7. 虚数
      -->
-    <td><a onclick="jump(1,5,'刃')">刃</a></td>
+    <td><a href="picture.html?id=34">刃</a></td>
     <td>
-        <a onclick="jump(1,6,'雪衣',1)" style="color: aqua;">雪衣</a>
+        <a href="picture.html?id=30" style="color: aqua;">雪衣</a>
         <a class="note" href="#note3">(3)</a>
     </td>
-    <td><a onclick="jump(1,7,'饮月君')">饮月</a></td>
+    <td><a href="picture.html?id=7">饮月</a></td>
 </tr>
 <!-- 巡猎  -->
 <tr>
@@ -27,10 +27,10 @@
     6. 量子
     7. 虚数
      -->
-    <td><a onclick="jump(2,5,'丹恒')">丹恒</a></td>
-    <td><a onclick="jump(2,6,'希儿')">希儿</a></td>
+    <td><a href="picture.html?id=6">丹恒</a></td>
+    <td><a href="picture.html?id=19">希儿</a></td>
     <td>
-        <a onclick="jump(2,7,'真理医生',1)" style="color: aqua;">真理医生</a>
+        <a href="picture.html?id=40" style="color: aqua;">真理医生</a>
         <a class="note" href="#note3">(3)</a>
     </td>
 </tr>
@@ -46,7 +46,7 @@
     7. 虚数
      -->
     <td></td>
-    <td><a onclick="jump(3,6,'青雀')">青雀</a></td>
+    <td><a href="picture.html?id=26">青雀</a></td>
     <td></td>
 </tr>
 <!-- 同谐  -->
@@ -60,12 +60,12 @@
     6. 量子
     7. 虚数
      -->
-    <td><a onclick="jump(4,5,'布洛妮娅')">布洛妮娅</a></td>
+    <td><a href="picture.html?id=10">布洛妮娅</a></td>
     <td>
-       <a onclick="jump(4,3,'花火',1)" style="color: aqua;">花火</a>
+       <a href="picture.html?id=42" style="color: aqua;">花火</a>
        <a class="note" href="#note3">(3)</a>
     </td>
-    <td><a onclick="jump(4,7,'驭空')">驭空</a></td>
+    <td><a href="picture.html?id=24">驭空</a></td>
 </tr>
 <!-- 虚无  -->
 <tr>
@@ -79,13 +79,13 @@
     7. 虚数
      -->
     <td data-device="mobile">
-        <a onclick="jump(5,5,'桑博')">桑博</a>
+        <a href="picture.html?id=14">桑博</a>
         <br>
-        <a onclick="jump(5,5,'黑天鹅')" style="color: aqua;">黑天鹅</a>
+        <a href="picture.html?id=41" style="color: aqua;">黑天鹅</a>
         <a class="note" href="#note3">(3)</a>
     </td>
-    <td><a onclick="jump(5,6,'银狼')">银狼</a></td>
-    <td><a onclick="jump(5,7,'瓦尔特')">瓦尔特</a></td>
+    <td><a href="picture.html?id=36">银狼</a></td>
+    <td><a href="picture.html?id=9">瓦尔特</a></td>
 </tr>
 <!-- 存护  -->
 <tr>
@@ -99,7 +99,7 @@
     7. 虚数
      -->
     <td></td>
-    <td><a onclick="jump(6,6,'符玄')">符玄</a></td>
+    <td><a href="picture.html?id=28">符玄</a></td>
     <td></td>
 </tr>
 <!-- 丰饶  -->
@@ -113,7 +113,7 @@
     6. 量子
     7. 虚数
      -->
-    <td><a onclick="jump(7,5,'藿藿')">藿藿</a></td>
-    <td><a onclick="jump(7,6,'玲可')">玲可</td>
-    <td><a onclick="jump(7,7,'罗刹')">罗刹</td>
+    <td><a href="picture.html?id=31">藿藿</a></td>
+    <td><a href="picture.html?id=16">玲可</td>
+    <td><a href="picture.html?id=35">罗刹</td>
 </tr>
