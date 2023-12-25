@@ -12,6 +12,8 @@ let helper, mesh;
 let camera, scene, renderer, effect, composer;
 let info = document.getElementById('info');
 const clock = new THREE.Clock();
+let urlroot = "https://ycl069.github.io";
+// let urlroot = ".";
 
 // 处理传入参数
 var id = getUrlParams('id');
@@ -29,7 +31,7 @@ if (!other) {
 // 判断是否为Webkit用户
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 if (browser().engine == "webkit" || isSafari) {
-  alert("!!!注意!!!\n由于Webkit内核对于WebGL兼容性有限,  页面可能出现未知渲染问题。\n若可能请更换非Webkit内核浏览器访问")  
+  alert("!!!注意!!!\n由于Webkit内核对于WebGL兼容性有限,  页面可能出现未知渲染问题。\n若可能请更换非Webkit内核浏览器访问。")
 }
 
 // 主函数
@@ -80,8 +82,16 @@ function init() {
   const loader = new MMDLoader();
   helper = new MMDAnimationHelper();
   json(dataurl, id, "name", (name) => {
-    // const pmxfile = `./models/${name}/index.pmx`;
-    const pmxfile = `https://ycl069.github.io/models/${name}/index.pmx`;
+    // 判断开拓者
+    if (name == "开拓者") {
+      var data = getUrlParams('data');
+      if (data == "1") {
+        var name = "男主"
+      } else {
+        var name = "男主"
+      }
+    }
+    var pmxfile = `${urlroot}/models/${name}/index.pmx`;
     if (!vmd) {
       loader.load(
         pmxfile,
@@ -224,9 +234,8 @@ function render() {
 
 // 加载武器模型
 function weapons(loader, name, number) {
-  console.log(number)
   if (number == 1) {
-    loader.load(`https://ycl069.github.io/models/${name}/1.pmx`, function (mesh) {
+    loader.load(`${urlroot}/models/${name}/1.pmx`, function (mesh) {
       // 添加到屏幕( X:-10 y:-10 Z:0)
       mesh.position.x = -10;
       mesh.position.y = -10;
@@ -236,8 +245,7 @@ function weapons(loader, name, number) {
     let x = [0, -10, +10, +5, -5, -10];
     let z = [0, 0, 0, -10, -10, 0];
     for (let i = 1; i <= number; i++) {
-      console.log("sd" + i)
-      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, (mesh) => {
+      loader.load(`${urlroot}/models/${name}/${i}.pmx`, (mesh) => {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
@@ -250,8 +258,7 @@ function weapons(loader, name, number) {
     let x = [0, -15, +20, +10, -10, -20, 0, +20];
     let z = [0, 0, 0, -15, -15, -15, -15, -15];
     for (let i = 1; i <= number; i++) {
-      console.log("sd" + i)
-      loader.load(`https://ycl069.github.io/models/${name}/${i}.pmx`, (mesh) => {
+      loader.load(`${urlroot}/models/${name}/${i}.pmx`, (mesh) => {
         // 添加到屏幕(X,Y,Z)
         mesh.position.x = x[i];
         mesh.position.y = -10;
