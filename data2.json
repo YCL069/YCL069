@@ -18,9 +18,9 @@
         "weapons": 0
     },
     "4": {
-        "name": "雪衣",
-        "from": "隔壁的隔壁老黄",
-        "mmd": true,
+        "name": "",
+        "from": "",
+        "mmd": false,
         "weapons": 0
     },
     "5": {
